@@ -10,11 +10,10 @@ function App() {
     { name: 'Vfx', price: '69.99$' }
   ]
   const actorNames = actor.map(actor => actor)
-  console.log(actorNames);
   return (
     <div className="App">
       <header className="App-header">
-        <Counter></Counter>
+        
         <Users></Users>
         <ul>
           {
@@ -27,7 +26,7 @@ function App() {
         <Product product={products[0]}></Product>
         <Product product={products[1]}></Product>
         <Product product={products[2]}></Product>
-
+        <Counter></Counter>
       </header>
     </div>
   );
@@ -53,10 +52,12 @@ function Users() {
 function Counter() {
   const [count, setCount] = useState(10);
   const handleIncrease = () => setCount(count + 1);
+  const handleDecrease = () => setCount(count - 1);
   return (
     <div>
       <h1>Count: {count}</h1>
       <button onClick={handleIncrease}>Increase</button>
+      <button onClick={handleDecrease}>Decrease</button>
     </div>
   )
 }
@@ -67,7 +68,9 @@ function Product(props) {
     backgroundColor: 'gray',
     height: '200px',
     width: '200px',
-    float: 'left'
+    float: 'left',
+    margin: '5px',
+    float:'left'
   }
   const { name, price } = props.product;
   return (
